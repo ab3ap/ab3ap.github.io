@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mike Markowski AB3AP. Ham radio operator
+    and retired engineer with projects in signal processing, GNU Radio,
+    propagation modeling, retro computing, genealogy, and software
+    development.">
+
+  <title>Mike Markowski</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+
+    :root {
+      --bg:        #f7f5f0;
+      --surface:   #ffffff;
+      --text:      #2c2c2c;
+      --muted:     #777;
+      --accent:    #2a5f8f;
+      --accent2:   #b34a00;
+      --rule:      #ddd;
+      --tag-bg:    #e8f0f8;
+      --tag-text:  #1a3f60;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.7;
+      padding: 0 16px 60px;
+    }
+
+    /* ── Header ── */
+    header {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 0 32px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    header h1 {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+    }
+
+    header .contact {
+      margin-top: 6px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    header .contact a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--muted);
+    }
+
+    header .tagline {
+      margin-top: 12px;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #555;
+    }
+
+    /* ── Main layout ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* ── Sections ── */
+    section {
+      margin-top: 36px;
+    }
+
+    section h2 {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    section h3 {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin: 20px 0 8px;
+    }
+
+    /* ── Link list ── */
+    ul.links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    ul.links li {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 5px 0;
+      border-bottom: 1px solid #ece9e2;
+    }
+
+    ul.links li:last-child {
+      border-bottom: none;
+    }
+
+    ul.links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 400;
+      transition: color 0.15s;
+    }
+
+    ul.links a:hover {
+      color: var(--accent2);
+      text-decoration: underline;
+    }
+
+    ul.links .note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── Education timeline ── */
+    .timeline {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline li {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 0 16px;
+      padding: 7px 0;
+      border-bottom: 1px solid #ece9e2;
+      align-items: baseline;
+    }
+
+    .timeline li:last-child { border-bottom: none; }
+
+    .timeline .year {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.8rem;
+      color: var(--accent2);
+      font-weight: 600;
+      white-space: nowrap;
+      padding-top: 1px;
+    }
+
+    .timeline .desc {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .timeline a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .timeline a:hover {
+      color: var(--accent2);
+      text-decoration: underline;
+    }
+
+    .image-container {
+      display: flex;         /* Activates flexbox layout */
+      align-items: center;   /* Vertically centers the text with the image */
+      gap: 15px;             /* Adds clean spacing between image and text */
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .image-container p {
+      margin: 0;
+    }
+
+    .image-container p + p {
+      margin-top: 0.4em;
+      color: var(--muted);
+    }
+
+    header .subtitle {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.9rem;
+      color: var(--muted); /* Uses your existing gray variable (#777) */
+      margin-top: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    /* Adjust contact spacing to sit nicely under the subtitle */
+    header .contact {
+      margin-top: 4px; 
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 720px;
+      margin: 48px auto 0;
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Mike Markowski, AB3AP</h1>
+  <div class="subtitle"><i>On the Internet since 1981, WWW since 1993</i></div>
+  <div class="subtitle">Ham Radio · Signal Processing · Computing History</div>
+  <div class="contact"><a href="mailto:mike.ab3ap@gmail.com">mike.ab3ap@gmail.com</a></div>
+  <div class='image-container'>
+    <img width=30% src='hawaiiCheersSmall.jpg'>
+    <div>
+    <p>I enjoy a somewhat odd mix of pastimes of many types, predominantly
+    technical in nature, but my family makes me happiest of all.  Here's a
+    pic of wife and me!</p>
+    <p>I'm a ham radio operator and engineer interested in signal
+    processing, SDRs/GNU Radio, propagation modeling,
+    retro computing, genealogy, and preserving bits of computing
+    history.</p>
+    </div>
+  </div>
+  <div class="tagline">What a boring page! (But not to me.)  Things that keep
+  me busy and out of trouble.</div>
+</header>
+
+<main>
+
+  <section>
+    <h2>Education - Too Much Time at University?</h2>
+    <ul class="timeline">
+      <li>
+        <span class="year">1980s</span>
+        <span class="desc"><a href="engr.png">BS in Engineering?</a>
+          — humor (my wife got this at U of Md in the 80s)</span>
+      </li>
+      <li>
+        <span class="year">1988</span>
+        <span class="desc">MS, Electrical Engineering — TTL Circuit
+          Design</span>
+      </li>
+      <li>
+        <span class="year">1998</span>
+        <span class="desc"><a href="https://udel.edu/~mm/research">PhD,
+          Computer Science</a></span>
+      </li>
+      <li>
+        <span class="year">2008</span>
+        <span class="desc">PhD, Civil Engineering<br>
+          <a href="https://udel.edu/~mm/traffic/amble">Pedestrian
+            movement</a> &nbsp;·&nbsp;
+          <a href="https://udel.edu/~mm/traffic/barriers">Vehicular
+            movement</a>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Hobbies and Interests</h2>
+    <ul class="links">
+      <li>
+        <a href="https://udel.edu/~mm/ham">Ham radio</a>
+        <span class="note">my main hobby</span>
+      </li>
+      <li>
+        <a href="https://udel.edu/~mm/dna">DNA software</a>
+        <span class="note">making sense of DNA matches</span>
+      </li>
+      <li>
+        <a href="https://udel.edu/~mm/wwi">A relative's WWI diary</a>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Tech Stuff - Signal Processing and More</h2>
+    <ul class="links">
+      <li>
+        <a href="https://ab3ap.github.io/libcsp/">Cyclostationary Signal
+        Processing,</a>
+        <span class="note"> (2021-now) python tools and CSP blog
+        companion</span>
+      </li>
+      <li>
+        <a href="https://ab3ap.github.io/itm/">Longley-Rice Irregular Terrain
+        Model,</a>
+        <span class="note"> (2023-now) in python</span>
+      </li>
+      <li>
+        <a href="https://udel.edu/~mm/rfl">RF coverage mapping,</a>
+        <span class="note"> (2023-now)</span>
+      </li>
+      <li>
+        <a href="https://udel.edu/~mm/nsma">Antenna pattern viewer,</a>
+        <span class="note"> (2023-now)</span>
+      </li>
+      <li>
+        <a href="https://udel.edu/~mm/gr">GNU Radio efforts</a>
+        <span class="note"> (2015-now)</span>
+      </li>
+      <li>
+        <a href="https://udel.edu/~mm/code/marchingSquares">Isolines in Java</a>
+        <span class="note"> (2012)</span>
+      </li>
+      <li>
+        <a href="https://udel.edu/~mm/retire">When to start taking Social Security payments</a>
+        <span class="note"> (2026)</span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Computing History</h2>
+    <h3>Software</h3>
+    <ul class="links">
+      <li>
+        <a href="https://udel.edu/~mm/hp/trek">1973 Star Trek</a>
+        <span class="note">BASIC to python</span>
+      </li>
+      <li>
+        <a href="https://udel.edu/~mm/hp/adventure">1977 Crowther & Woods
+           Adventure</a>
+        <span class="note">Fortran-IV to python</span>
+      </li>
+      <li>
+        <a href="https://udel.edu/~mm/hat">1981 Mathematical Hat</a>
+        <span class="note">famous demo</span>
+      </li>
+      <li>
+        <a href="https://udel.edu/~mm/xmas">1988 Obfuscated C, 12 Days
+           of Christmas</a>
+      </li>
+      <li>
+        <a href="https://udel.edu/~mm/bubble">2020 Bubble Universe</a>
+        <span class="note">using complex numbers</span>
+      </li>
+      <li>
+        <a href="https://udel.edu/~mm/spiro">Spirograph</a>
+        <span class="note">in python</span>
+      </li>
+      <li>
+        <a href="https://udel.edu/~mm/hp">HP calculator programs</a>
+      </li>
+    </ul>
+    <h3>Hardware</h3>
+    <ul class="links">
+      <li><a href="https://udel.edu/~mm/pidp8i">PiDP-8/I</a></li>
+      <li><a href="https://udel.edu/~mm/projectDelta">PiDP-11</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Fun Stuff</h2>
+    <ul class="links">
+      <li><a href="https://udel.edu/~mm/bananaSplits">Banana Splits</a></li>
+      <li><a href="https://udel.edu/~mm/tomSwift">Tom Swift, Jr.</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>My Vintage Web Pages, Frozen in Time</h2>
+    <ul class="links">
+      <li><a href="https://udel.edu/~mm/anime/speed">Speed Racer,</a> 1994</li>
+      <li><a href="https://udel.edu/~mm/beatles">Beatles,</a> 1994</li>
+      <li><a href="https://udel.edu/~mm/sliderule">Slide Rules,</a> 1996</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Our Sons' Eagle Scouts Projects</h2>
+    <ul class="links">
+      <li>
+        <a href="https://udel.edu/~mm/newLondon">Nathan's BSA Eagle project</a>
+      </li>
+      <li>
+        <a href="https://udel.edu/~mm/franklin">Jonathan's BSA Eagle project</a>
+      </li>
+      <li><a href="https://markowski.me">——Jonathan is now a UX
+          designer!↗</a> He could improve this page. :-)</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <span>Updated June 2026</span>
+</footer>
+
+<!-- Default Statcounter code for Home page
+http://udel.edu/~mm -->
+<script type="text/javascript">
+var sc_project=4720873; 
+var sc_invisible=1; 
+var sc_security="4b8e77f9"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/4720873/0/4b8e77f9/1/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+
+</body>
+</html>
